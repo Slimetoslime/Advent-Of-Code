@@ -83,18 +83,18 @@ public class Day2 {
 			for (String report : puzzleLines) {
 				List<Integer> levels = Arrays.asList(report.split("\\s+")).stream().map(Integer::valueOf)
 						.collect(Collectors.toList());
-				
+
 				if (isSafe(levels)) {
 					result++;
 				} else {
 					for (int i = 0; i < levels.size(); i++) {
 						int removed = levels.remove(i);
-						
+
 						if (isSafe(levels)) {
 							result++;
 							break;
 						}
-						
+
 						levels.add(i, removed);
 					}
 				}

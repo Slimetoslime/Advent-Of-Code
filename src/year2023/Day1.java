@@ -11,12 +11,12 @@ import universalFunctions.ReadFiles;
 
 /**
  * =========================================================================
- * 								RUNNER CODE
+ * RUNNER CODE
  * =========================================================================
  */
 
 public class Day1 {
-	
+
 	public static void main(String[] args) {
 		File puzzle = new File("input/2023/dayOne.txt");
 		List<String> puzzleLines = ReadFiles.readLineByLine(puzzle);
@@ -27,7 +27,7 @@ public class Day1 {
 
 /**
  * =========================================================================
- * 								START OF PART 1
+ * START OF PART 1
  * =========================================================================
  */
 
@@ -82,7 +82,7 @@ class Day1_1 {
 
 /**
  * =========================================================================
- * 								START OF PART 2
+ * START OF PART 2
  * =========================================================================
  */
 
@@ -109,34 +109,37 @@ class Day1_2 {
 		System.out.println("Part 2: " + results.stream().mapToInt(Integer::intValue).sum());
 	}
 
-	/** Reads first and last digit and concatenates them into a string, including written out numbers (one, two, ...)
+	/**
+	 * Reads first and last digit and concatenates them into a string, including
+	 * written out numbers (one, two, ...)
 	 * 
 	 * @param s String to check.
 	 * @return String representation of the number.
 	 */
 	private static String getFirstAndLastNumber(String s) {
 		String stringToChange = s;
-		for (Map.Entry<String, String> entry: wordsToNumbers.entrySet()) {
+		for (Map.Entry<String, String> entry : wordsToNumbers.entrySet()) {
 			stringToChange = stringToChange.replaceAll(entry.getKey(), entry.getValue());
 		}
-		
+
 		char[] lettersOfS = stringToChange.toCharArray();
 		int stringLength = lettersOfS.length;
 		boolean foundFirst = false, foundLast = false;
 		String[] results = new String[2];
-		
+
 		for (int i = 0; i < stringLength; i++) {
 			if (!foundFirst && Character.isDigit(lettersOfS[i])) {
 				foundFirst = true;
 				results[0] = Character.toString(lettersOfS[i]);
 			}
-			if (!foundLast && Character.isDigit(lettersOfS[stringLength-i-1])) {
+			if (!foundLast && Character.isDigit(lettersOfS[stringLength - i - 1])) {
 				foundLast = true;
-				results[1] = Character.toString(lettersOfS[stringLength-i-1]);
+				results[1] = Character.toString(lettersOfS[stringLength - i - 1]);
 			}
-			if (foundFirst && foundLast) return results[0] + results[1];
+			if (foundFirst && foundLast)
+				return results[0] + results[1];
 		}
-		
+
 		throw new IllegalArgumentException("String '" + s + "' does not contain digits!");
 	}
 }
