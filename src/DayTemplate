@@ -1,0 +1,60 @@
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import universalFunctions.ReadFiles;
+
+/**
+ * =========================================================================
+ * 								RUNNER CODE
+ * =========================================================================
+ */
+
+public class DayX {
+	
+	public static void main(String[] args) {
+		File puzzle = new File("test/202X/DayX.txt");
+		List<String> puzzle = ReadFiles.readLineByLine(puzzle);
+		Part1.part();
+		Part2.part();
+	}
+	
+	/**
+ 	* =========================================================================
+ 	* 								START OF PART 1
+ 	* =========================================================================
+ 	*/
+
+	class Part1 {
+
+		/**
+		 * Solves the first part of the puzzle.
+		 * 
+		 * @param puzzleLines List of Strings read from the file line-by-line.
+		 */
+		public static void part() {
+
+			System.out.println("Part 1: ");
+		}
+	}
+	
+	/**
+	 * =========================================================================
+	 * 								START OF PART 2
+	 * =========================================================================
+	 */
+
+	class Part2 {
+
+		/**
+		 * Solves the second part of the puzzle.
+		 * 
+		 * @param puzzleLines List of Strings read from the file line-by-line.
+		 */
+		public static void part() {
+	
+			System.out.println("Part 2: ");
+		}
+	}
+}
+
