@@ -13,8 +13,8 @@ import universalFunctions.ReadFiles;
 public class DayX {
 	
 	public static void main(String[] args) {
-		File puzzle = new File("test/202X/DayX.txt");
-		List<String> puzzle = ReadFiles.readLineByLine(puzzle);
+		File puzzleFile = new File("test/202X/DayX.txt");
+		List<String> puzzle = ReadFiles.readLineByLine(puzzleFile);
 		Part1.part();
 		Part2.part();
 	}
