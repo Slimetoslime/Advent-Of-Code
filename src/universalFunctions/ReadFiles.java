@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class ReadFiles {
 
@@ -60,6 +61,18 @@ public class ReadFiles {
 	public static void printMatrix(List<List<String>> list) {
 		for (List<String> innerList: list) {
 			System.out.println(innerList);
+		}
+	}
+	
+	/** Prints a Map (or Dictionary), line-by-line.
+	 * 
+	 * @param <K> Object type of the key.
+	 * @param <V> Object type of the value.
+	 * @param map the Map/Dictionary to print.
+	 */
+	public static <K, V> void printMap(Map<K, V> map) {
+		for (Map.Entry<K, V> entry: map.entrySet()) {
+			System.out.println(String.format("%s: %s", entry.getKey(), entry.getValue()));
 		}
 	}
 	
