@@ -33,6 +33,22 @@ public class ReadFiles {
 		return lines;
 	}
 	
+	/** Reads the puzzle input file and splits the input into a list, based on some separators.
+	 * 
+	 * @param puzzle File object of the puzzle input file path.
+	 * @param separator Custom separator to split the input Strings.
+	 * @return List of Strings read and split by the custom separator.
+	 */
+	public static List<String> readCustomGap(File puzzle, String separator) {
+		List<String> sections = new ArrayList<>();
+		
+		String fullString = readFileRaw(puzzle);
+		String[] splitString = fullString.split(separator);
+		sections.addAll(Arrays.asList(splitString));
+		
+		return sections;
+	}
+	
 	/** Reads a file and return a 2-dimensional ArrayList of Strings.
 	 * 
 	 * @param puzzle File object of the puzzle input file path.
