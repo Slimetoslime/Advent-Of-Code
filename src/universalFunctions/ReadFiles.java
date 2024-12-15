@@ -70,13 +70,31 @@ public class ReadFiles {
 		return matrix;
 	}
 	
+	/** Parses a String representing a 2-dimensional grid into an ArrayList of ArrayList of Strings.
+	 * 
+	 * @param grid String grid to convert.
+	 * @return List of Lists of Strings.
+	 */
+	public static List<List<String>> parseIntoMatrix(String grid) {
+		List<List<String>> matrix = new ArrayList<>();
+		
+		String[] rows = grid.split(System.lineSeparator());
+		for (String row: rows) {
+			String[] elements = row.split("");
+			matrix.add(Arrays.asList(elements));
+		}
+		
+		return matrix;
+	}
+	
 	/** Prints a Matrix.
 	 * 
 	 * @param list 2D List of Strings.
 	 */
 	public static void printMatrix(List<List<String>> list) {
 		for (List<String> innerList: list) {
-			System.out.println(innerList);
+			for (String s: innerList) System.out.print(s);
+			System.out.println();
 		}
 	}
 	
