@@ -119,15 +119,20 @@ public class Day18 {
 	 * @return The coordinate of the first byte blocking the goal.
 	 */
 	private static String firstToBlock(List<String> bytes, int size) {
-		int time = 0;
+		int leftMost = 0;
+		int rightMost = bytes.size();
 		Position finalPos = new Position(size, size);
 		
-		while (true) {
-			parseToMap(bytes, time, size);
+		while (leftMost < rightMost-1) {
+			int timeToCheck = (rightMost + leftMost)/2;
+			parseToMap(bytes, timeToCheck, size);
 			Map<Position, Long> distanceMatrix = dijkstra(new Position(), true, finalPos);
-			if (distanceMatrix.get(finalPos) == infinity) return bytes.get(time-1);
-			else time++;
+			long finalPositionValue = distanceMatrix.get(finalPos);
+			if (finalPositionValue == infinity) rightMost = timeToCheck;
+			else leftMost = timeToCheck;
 		}
+		
+		return bytes.get(leftMost);
 	}
 	
 	/**
@@ -145,9 +150,7 @@ public class Day18 {
 		 */
 		public static void part(List<String> bytes, int numOfBytes, int size) {
 			parseToMap(bytes, numOfBytes, size);
-			ReadFiles.printMatrix(map);
 			Map<Position, Long> distanceMatrix = dijkstra(new Position(), true, new Position(size, size));
-			System.out.println(distanceMatrix);
 
 			System.out.println("Part 1: " + distanceMatrix.get(new Position(size, size)));
 		}
