@@ -98,6 +98,17 @@ public class ReadFiles {
 		}
 	}
 	
+	/** Prints a Matrix.
+	 * 
+	 * @param list 2D List of Strings.
+	 */
+	public static void printMatrix(String[][] list) {
+		for (String[] innerList: list) {
+			for (String s: innerList) System.out.print(s);
+			System.out.println();
+		}
+	}
+	
 	/** Prints a Map (or Dictionary), line-by-line.
 	 * 
 	 * @param <K> Object type of the key.
