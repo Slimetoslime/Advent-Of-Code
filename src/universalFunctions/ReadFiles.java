@@ -49,6 +49,10 @@ public class ReadFiles {
 		return sections;
 	}
 	
+	public static List<String> readDoubleGap(File puzzle) {
+		return readCustomGap(puzzle, System.lineSeparator() + System.lineSeparator());
+	}
+	
 	/** Reads a file and return a 2-dimensional ArrayList of Strings.
 	 * 
 	 * @param puzzle File object of the puzzle input file path.
